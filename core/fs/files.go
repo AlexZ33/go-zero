@@ -11,6 +11,6 @@ import (
 // CloseOnExec makes sure closing the file on process forking.
 func CloseOnExec(file *os.File) {
 	if file != nil {
-		syscall.CloseOnExec(int(file.Fd()))
+		syscall.CloseOnExec(syscall.Handle(file.Fd()))
 	}
 }
